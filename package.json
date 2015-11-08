@@ -1,0 +1,35 @@
+{
+  "name": "pico-proxy",
+  "version": "0.0.0",
+  "description": "Tiny http proxy for interacting with cross-domain APIs without CORS",
+  "homepage": "",
+  "author": {
+    "name": "drowzy",
+    "email": "simon.thornqvist@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "http",
+    "proxy",
+    "cors"
+  ],
+  "repository": "drowzy/pico-proxy",
+  "devDependencies": {
+    "eslint": "^1.9.0",
+    "gulp": "^3.6.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-plumber": "^1.0.0"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "license": "MIT"
+}
