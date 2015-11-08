@@ -11,6 +11,9 @@
   "files": [
     "lib"
   ],
+  "bin": {
+    "pico-proxy": "./bin/cli.js"
+  },
   "main": "lib/index.js",
   "keywords": [
     "http",
