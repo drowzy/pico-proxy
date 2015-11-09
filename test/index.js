@@ -1,12 +1,13 @@
 'use strict';
 
 var expect = require('chai').expect,
-    nock = require('nock'),
-    http = require('http'),
-    picoProxy = require('../lib');
+  nock = require('nock'),
+  http = require('http'),
+  picoProxy = require('../lib');
 
 describe('pico-proxy', function () {
   var proxy;
+
   before(function () {
     proxy = picoProxy({ target: 'http://api.domain.com' }).listen(3000);
   });
@@ -15,12 +16,11 @@ describe('pico-proxy', function () {
     proxy.close();
   });
 
-  describe('OPTION requests', function() {
+  describe('requests', function () {
     before(function () {
       this.scope = nock('http://api.domain.com')
-                   .log(console.log)
                    .get('/')
-                   .reply(304);
+                   .reply(200, 'data');;
     });
 
     after(function () {
@@ -28,11 +28,19 @@ describe('pico-proxy', function () {
     });
 
     it('should intercept OPTIONS requests per default', function (done) {
-      var req = http.request({ hostname: '127.0.0.1', port: 3000, method: 'OPTIONS' }, function (res) {
+      http.request({ hostname: '127.0.0.1', port: 3000, method: 'OPTIONS' }, function (res) {
         expect(res.statusCode).to.be.eq(200);
         done();
-      });
-      req.end();
+      }).end();
+    });
+
+    it('should send a get request to the target', function (done) {
+      http.request({ hostname: '127.0.0.1', port: 3000, method: 'GET' }, function (res) {
+        res.on('data', function (chunk) {
+          expect(chunk.toString('utf8')).to.be.eq('data');
+          done();
+        });
+      }).end();
     });
 
   });

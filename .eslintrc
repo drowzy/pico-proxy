@@ -30,7 +30,7 @@
     ],
     "one-var": [
       2,
-      "never"
+      "always"
     ],
     "quote-props": [
       2,
