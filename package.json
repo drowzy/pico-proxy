@@ -22,6 +22,7 @@
   ],
   "repository": "drowzy/pico-proxy",
   "devDependencies": {
+    "chai": "^3.4.1",
     "eslint": "^1.9.0",
     "gulp": "^3.6.0",
     "gulp-eslint": "^1.0.0",
@@ -29,7 +30,8 @@
     "gulp-istanbul": "^0.9.0",
     "gulp-mocha": "^2.0.0",
     "gulp-nsp": "^2.1.0",
-    "gulp-plumber": "^1.0.0"
+    "gulp-plumber": "^1.0.0",
+    "nock": "^2.17.0"
   },
   "scripts": {
     "test": "gulp"
