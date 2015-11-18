@@ -18,9 +18,9 @@ describe('pico-proxy', function () {
 
   describe('requests', function () {
     before(function () {
-      this.scope = nock('http://api.domain.com')
-                   .get('/')
-                   .reply(200, 'data');;
+      nock('http://api.domain.com')
+        .get('/').reply(200, 'data')
+        .post('/upload').reply(201, 'data');
     });
 
     after(function () {
@@ -43,5 +43,30 @@ describe('pico-proxy', function () {
       }).end();
     });
 
+    it('should send a post request to the target', function (done) {
+      var data = JSON.stringify({ msg: 'Hello World!' }),
+        options = {
+          hostname: '127.0.0.1',
+          port: 3000,
+          path: '/upload',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': data.length
+          }
+        },
+
+        req = http.request(options, function (res) {
+          expect(res.statusCode).to.be.eq(201);
+
+          res.on('data', function (chunk) {
+            expect(chunk.toString('utf8')).to.be.eq('data');
+            done();
+          });
+        });
+
+      req.write(data);
+      req.end();
+    });
   });
 });
