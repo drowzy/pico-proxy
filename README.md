@@ -22,7 +22,7 @@ var proxy = picoProxy({ target: 'http://api.domain.com' }).listen(3000);
 ## CLI
 
 ```
-$ pico-proxy --help                    
+$ pico-proxy --help
 
 Usage
   $ pico-proxy <target>
@@ -32,9 +32,12 @@ Options
   --port port to listen to for the proxy server, defaults to 8080
   --protocol protocol used when creating the proxy server, defaults to http
   --cors if the proxy server should handle CORS requests, defaults to true
+  --allow-headers overrides for Access-Control-Allow-Headers, defaluts to '*'
+  --allow-methods overrides for Access-Control-Allow-Methods, defaults to '*'
+  --allow-request overrides for Access-Control-Allow-request-Methods, defaults to '*'
 
 Examples
-  $ pico-proxy --port 3333 --protocol http --target http://api.hostname.com --cors true
+  $ $ pico-proxy --port 3333 --protocol http --target http://api.hostname.com --allow-headers "Content-type,X-Session-cookie"
 ```
 [npm-image]: https://badge.fury.io/js/pico-proxy.svg
 [npm-url]: https://npmjs.org/package/pico-proxy
