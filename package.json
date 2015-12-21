@@ -36,5 +36,8 @@
   "scripts": {
     "test": "gulp"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "meow": "^3.6.0"
+  }
 }
