@@ -37,7 +37,8 @@ Options
   --allow-request overrides for Access-Control-Allow-request-Methods, defaults to '*'
 
 Examples
-  $ $ pico-proxy --port 3333 --protocol http --target http://api.hostname.com --allow-headers "Content-type,X-Session-cookie"
+  $ pico-proxy --port 3333 --protocol http --target http://api.hostname.com 
+  $ pico-proxy --target http://api.hostname.com --allow-headers "Content-type,X-Sessioncookie"
 ```
 [npm-image]: https://badge.fury.io/js/pico-proxy.svg
 [npm-url]: https://npmjs.org/package/pico-proxy
