@@ -9,7 +9,8 @@
     "url": ""
   },
   "files": [
-    "lib"
+    "lib",
+    "bin"
   ],
   "bin": {
     "pico-proxy": "./bin/cli.js"
