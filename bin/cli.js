@@ -15,6 +15,7 @@ var cli = meow(`
     --cors if the proxy server should handle CORS requests, defaults to true
     --allow-headers overrides for Access-Control-Allow-Headers, defaluts to '*'
     --allow-methods overrides for Access-Control-Allow-Methods, defaults to '*'
+    --allow-origin overrides for Access-Control-Allow-Origin, defaults to '*'
 
   allow overrides with more than one argument is a string seperated by ',' e.g --allow-headers "Content-type,X-Session-cookie"
   Examples
